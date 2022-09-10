@@ -3,10 +3,10 @@
 :: r	        The file can be read.           The directory's contents can be shown.
 
 :: -	        The file cannot be modified.    The directory's contents cannot be modified.
-:: w	        The file can be modified.       The directory's contents can be modified (create new files or directories; rename or delete existing files or directories); requires the execute permission to be also set, otherwise this permission has no effect.
+:: w	        The file can be modified.       The directory's contents can be modified create new files or directories; rename or delete existing files or directories; requires the execute permission to be also set, otherwise this permission has no effect.
 
 :: -	        The file cannot be executed.    The directory cannot be accessed with cd.
-:: x	        The file can be executed.       The directory can be accessed with cd; this is the only permission bit that in practice can be considered to be "inherited" from the ancestor directories, in fact if any directory in the path does not have the x bit set, the final file or directory cannot be accessed either, regardless of its permissions; see path_resolution(7) for more information.
+:: x	        The file can be executed.       The directory can be accessed with cd;.
 
 
 cd lab0

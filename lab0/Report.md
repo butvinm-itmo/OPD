@@ -5,7 +5,7 @@
 
 
 ## Задание 1
->Введенные команды:
+Введенные команды:
 
     mkdir lab0
     cd lab0
@@ -90,7 +90,7 @@
     cd ..
     cd ..
 
->Результат:
+Результат:
 
     [s367945@helios ~/OPD]$ cd lab0
     [s367945@helios ~/OPD/lab0]$ ls
@@ -110,7 +110,7 @@
 
 
 ## Задание 2
->Введенные команды:
+Введенные команды:
 
     cd lab0
 
@@ -145,7 +145,7 @@
     chmod 046 rampardos
     cd ..
 
->Результат
+Результат
 
     [s367945@helios ~/OPD]$ cd lab0
     [s367945@helios ~/OPD/lab0]$ ls -l
@@ -180,10 +180,11 @@
     d-wx-wx---  2 s367945  studs   2 10 сент. 14:45 tangrowth
     -rw-rw-r--  1 s367945  studs  28 10 сент. 14:45 treecko
 
->!!! Из-за изменения прав на файлы во втором задании некоторые команды в следующих заданиях могут выдавать ошибки доступа. Выполните **chmod -R 777 lab0**, чтобы избежать этого
+> !!! Из-за изменения прав на файлы во втором задании некоторые команды в следующих заданиях могут выдавать ошибки доступа. Выполните **chmod -R 777 lab0**, чтобы избежать этого
 
-## Задние 3
-Перейдите в lab0 перед выполнением (чтобы убрать повторяющиеся *lab0*/ в  путях файлов)
+## Задание 3
+> Перейдите в lab0 перед выполнением (чтобы убрать повторяющиеся *lab0*/ в  путях файлов)
+
 ### 1
 Команда:
 
@@ -255,9 +256,175 @@
     total 16
     5478020 -rwxrwxrwx  2 s367945  studs  121 10 сент. 14:45 prinplupgurdurr
     ...
->Inode файлов одинаковы, следовательно создана жесткая ссылка
+> Inode файлов одинаковы, следовательно создана жесткая ссылка
 
 
 ### 7
 Команда:
+
+    cp piloswine7 sunkern4/hydreigon/piloswine7
 Результат:
+
+    [s367945@helios ~/OPD/lab0/sunkern4/hydreigon]$ cat piloswine7
+    Способности Freezing Point Landslide
+    Oblivious Snow Cloak
+
+## Задание 4
+> Перейдите в lab0 перед выполнением (чтобы убрать повторяющиеся *lab0*/ в  путях файлов)
+
+### 1
+Команда:
+
+    wc -l archeops3 | head -c 8 | tail -c 1 >> archeops3
+    echo \ >> archeops3
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ cat archeops3
+    Возможности Overland=12 Surface=1 Sky=6 Jump=6 Power2=0
+    Inteliigence=4 Fragile=0
+    2
+
+### 2
+Команда:
+
+    ls -R1tl | grep "^[d|-]"
+Результат:
+
+    -rw-r--r--  1 s367945  studs   95 10 сент. 18:03 archeops3
+    drwxr-xr-x  5 s367945  studs    9 10 сент. 17:59 sunkern4
+    drwxr-xr-x  4 s367945  studs    6 10 сент. 17:59 poochyena9
+    -rw-r--r--  1 s367945  studs   88 10 сент. 17:59 archeops3_69
+    drwxr-xr-x  3 s367945  studs    5 10 сент. 17:56 tangela5
+    -rw-r--r--  1 s367945  studs   69 10 сент. 17:56 piloswine7
+    -rw-r--r--  2 s367945  studs  121 10 сент. 17:56 gurdurr6
+    drwxr-xr-x  2 s367945  studs    3 10 сент. 17:59 hydreigon
+    drwxr-xr-x  2 s367945  studs    2 10 сент. 17:56 bronzong
+    drwxr-xr-x  2 s367945  studs    2 10 сент. 17:56 honchkrow
+    -rw-r--r--  1 s367945  studs   20 10 сент. 17:56 cottonee
+    -rw-r--r--  1 s367945  studs  106 10 сент. 17:56 prinplup
+    -rw-r--r--  1 s367945  studs  141 10 сент. 17:56 mightyena
+    -rw-r--r--  2 s367945  studs  121 10 сент. 17:56 prinplupgurdurr
+    -rw-r--r--  1 s367945  studs  69 10 сент. 17:59 piloswine7
+    drwxr-xr-x  3 s367945  studs   3 10 сент. 17:59 seel
+    drwxr-xr-x  2 s367945  studs   2 10 сент. 17:56 simisage
+    -rw-r--r--  1 s367945  studs  50 10 сент. 17:56 ludicolo
+    drwxr-xr-x  5 s367945  studs  8 10 сент. 17:59 sunkern4
+    drwxr-xr-x  2 s367945  studs    2 10 сент. 17:59 hydreigon
+    -rw-r--r--  1 s367945  studs   20 10 сент. 17:59 cottonee
+    -rw-r--r--  1 s367945  studs  141 10 сент. 17:59 mightyena
+    drwxr-xr-x  2 s367945  studs    2 10 сент. 17:59 bronzong
+    -rw-r--r--  1 s367945  studs  106 10 сент. 17:59 prinplup
+    drwxr-xr-x  2 s367945  studs    2 10 сент. 17:59 honchkrow
+    drwxr-xr-x  2 s367945  studs   2 10 сент. 17:56 tangrowth
+    -rw-r--r--  1 s367945  studs  60 10 сент. 17:56 rampardos
+    -rw-r--r--  1 s367945  studs  28 10 сент. 17:56 treecko
+
+### 3
+Команда:
+
+    grep -n -i te archeops3 2> /dev/null
+Результат:
+
+    2:Inteliigence=4 Fragile=0
+
+### 4
+Команда:
+> Уберите флаг h для проверки названия файлов
+    mkdir tmp
+    grep --include=\*o -rh ".*" . | sort 2> tmp/errors
+Результат:
+
+    Tempo
+    Развитые способности Own
+    Тип диеты Herbivore
+    [s367945@helios ~/OPD/lab0]$ cd tmp
+    [s367945@helios ~/OPD/lab0/tmp]$ cat errors
+    [s367945@helios ~/OPD/lab0/tmp]$ ls
+    errors
+
+### 5
+Команда:
+
+    grep --include=\p* -rl  ".*" . |xargs  ls -lt 2> tmp/errors
+Результат:
+
+    -rw-r--r--  1 s367945  studs   69 10 сент. 17:59 ./Copy_53/hydreigon/piloswine7
+    -rw-r--r--  1 s367945  studs   69 10 сент. 17:59 ./sunkern4/hydreigon/piloswine7
+    -rw-r--r--  1 s367945  studs  106 10 сент. 17:59 ./poochyena9/seel/sunkern4/prinplup
+    -rw-r--r--  1 s367945  studs  106 10 сент. 17:56 ./Copy_53/prinplup
+    -rw-r--r--  1 s367945  studs  106 10 сент. 17:56 ./sunkern4/prinplup
+    -rw-r--r--  1 s367945  studs   69 10 сент. 17:56 ./piloswine7
+    -rw-r--r--  2 s367945  studs  121 10 сент. 17:56 ./Copy_53/prinplupgurdurr
+    -rw-r--r--  2 s367945  studs  121 10 сент. 17:56 ./sunkern4/prinplupgurdurr
+
+### 6   
+Команда:
+
+    grep -rhi ".*[^h]$" ./poochyena9/ 2> /dev/null
+Результат:
+
+    Развитые способности Own
+    Tempo
+    Ходы Covert Dive Icy Wind Mud-Slap Signal Beam Sleep
+    Talk Snore Stealth Rock Water Pledge Water Pulse
+    Roar Swagger Assurance Scary Face Taunt Embargo Take Down Thief Sucker
+    satk=4
+    sdef=5 spd=7
+
+## Задание 5
+> Перейдите в lab0 перед выполнением (чтобы убрать повторяющиеся *lab0*/ в  путях файлов)
+
+### 1
+Команда:
+
+    rm archeops3
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ ls
+    archeops3_69    Copy_53         gurdurr6        piloswine7      poochyena9      sunkern4        tangela5        tmp
+
+### 2
+Команда:
+
+    rm ./sunkern4/cottonee
+Результат:
+
+    [s367945@helios ~/OPD/lab0/sunkern4]$ ls
+    bronzong        honchkrow       hydreigon       mightyena       prinplup        prinplupgurdurr
+
+### 3
+Команда:
+
+    rm ./Copy_53
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ ls
+    archeops3_69    gurdurr6        piloswine7      poochyena9      sunkern4        tangela5        tmp
+
+### 4
+Команда:
+
+    rm ./sunkern4/prinplupgurdurr
+Результат:
+
+    [s367945@helios ~/OPD/lab0/sunkern4]$ ls
+    bronzong        honchkrow       hydreigon       mightyena       prinplup
+### 5
+Команда:
+
+    rm -fr ./sunkern4
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ ls
+    archeops3_69    gurdurr6        piloswine7      poochyena9      tangela5        tmp
+
+### 6
+Команда:
+
+    rm -fr ./sunkern4/honchkrow
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ rm -fr ./sunkern4/honchkrow
+    [s367945@helios ~/OPD/lab0]$
+
+> Вывода нет, тк мы уже удалили директорию sunkern4 и все файлы в ней ранее
