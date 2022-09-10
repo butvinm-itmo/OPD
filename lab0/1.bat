@@ -57,7 +57,7 @@ cd sunkern4
     echo sdef=5 spd=7
 ) > cottonee
 
-mkdir hydregion
+mkdir hydreigon
 mkdir honchkrow
 mkdir bronzong
 cd ..

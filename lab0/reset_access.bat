@@ -19,7 +19,7 @@ cd sunkern4
 chmod u=r--,g=---,o=--- mightyena
 chmod u=r--,g=---,o=--- prinplup
 chmod 777 cottonee
-chmod 777 hydregion
+chmod 777 hydreigon
 chmod 777 honchkrow
 chmod u=rwx,g=r-x,o=-wx bronzong
 cd ..

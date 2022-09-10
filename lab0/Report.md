@@ -66,7 +66,7 @@
         echo sdef=5 spd=7
     ) > cottonee
 
-    mkdir hydregion
+    mkdir hydreigon
     mkdir honchkrow
     mkdir bronzong
     cd ..
@@ -101,7 +101,7 @@
     [s367945@helios ~/OPD/lab0/poochyena9]$ cd ..
     [s367945@helios ~/OPD/lab0]$ cd sunkern4
     [s367945@helios ~/OPD/lab0/sunkern4]$ ls
-    bronzong        cottonee        honchkrow       hydregion       mightyena       prinplup
+    bronzong        cottonee        honchkrow       hydreigon       mightyena       prinplup
     [s367945@helios ~/OPD/lab0/sunkern4]$ cd ..
     [s367945@helios ~/OPD/lab0]$ cd tangela5
     [s367945@helios ~/OPD/lab0/tangela5]$ ls
@@ -129,7 +129,7 @@
     chmod 751 sunkern4
     cd sunkern4
 
-    chmod u=rx,g=w,o=r hydregion
+    chmod u=rx,g=w,o=r hydreigon
     chmod 337 honchkrow
     chmod u=rwx,g=rx,o=wx bronzong
     chmod u=r,g=,o= mightyena
@@ -169,7 +169,7 @@
     drwxr-----  2 s367945  studs    2 10 сент. 14:45 bronzong
     -rw-r--r--  1 s367945  studs   20 10 сент. 14:45 cottonee
     d-wx-wxrwx  2 s367945  studs    2 10 сент. 14:45 honchkrow
-    dr-xrw-r--  2 s367945  studs    2 10 сент. 14:45 hydregion
+    dr-xrw-r--  2 s367945  studs    2 10 сент. 14:45 hydreigon
     -r--------  1 s367945  studs  141 10 сент. 14:45 mightyena
     -r--------  1 s367945  studs  106 10 сент. 14:45 prinplup
     [s367945@helios ~/OPD/lab0/sunkern4]$ cd ..
@@ -191,8 +191,73 @@
 Результат:
 
     [s367945@helios ~/OPD/lab0/poochyena9/seel/sunkern4]$ ls
-    bronzong        cottonee        honchkrow       hydregion       mightyena       prinplup
+    bronzong        cottonee        honchkrow       hydreigon       mightyena       prinplup
 
 ### 2
-Команда
+Команда:
 
+    cat piloswine7 > poochyena9/ludicolopiloswine
+
+Результат: 
+
+    [s367945@helios ~/OPD/lab0/poochyena9]$ cat ludicolopiloswine
+    Способности Freezing Point Landslide
+    Oblivious Snow Cloak
+
+### 3
+Команда: 
+
+    cat tangela5/treecko tangela5/rampardos > archeops3_69
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ cat archeops3_69
+    Тип диеты Herbivore
+    Способности
+    Mountain Peak Mold Breaker Rock Head
+
+### 4
+Команда:
+
+    ln -s sunkern4 Copy_53
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ ls -l
+    total 24
+    -rwxrwxrwx  1 s367945  studs   92 10 сент. 14:45 archeops3
+    -rw-r--r--  1 s367945  studs   88 10 сент. 17:16 archeops3_69
+    lrwxr-xr-x  1 s367945  studs    8 10 сент. 17:23 Copy_53 -> sunkern4
+    ...
+
+### 5
+Команды:
+
+    rm poochyena9/ludicolopiloswine
+    ln -s piloswine7 poochyena9/ludicolopiloswine
+Результат:
+
+    [s367945@helios ~/OPD/lab0/poochyena9]$ ls -l
+    total 2
+    -rwxrwxrwx  1 s367945  studs  50 10 сент. 14:45 ludicolo
+    lrwxr-xr-x  1 s367945  studs  10 10 сент. 17:26 ludicolopiloswine -> piloswine7
+    ...
+
+### 6
+Команда:
+
+    ln gurdurr6 sunkern4/prinplupgurdurr
+Результат:
+
+    [s367945@helios ~/OPD/lab0]$ ls -l
+    total 24
+    5478020 -rwxrwxrwx  2 s367945  studs  121 10 сент. 14:45 gurdurr6
+    ...
+    [s367945@helios ~/OPD/lab0/sunkern4]$ ls -li
+    total 16
+    5478020 -rwxrwxrwx  2 s367945  studs  121 10 сент. 14:45 prinplupgurdurr
+    ...
+>Inode файлов одинаковы, следовательно создана жесткая ссылка
+
+
+### 7
+Команда:
+Результат:

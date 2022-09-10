@@ -26,7 +26,7 @@ cd ..
 chmod 751 sunkern4
 cd sunkern4
 
-chmod u=rx,g=w,o=r hydregion
+chmod u=rx,g=w,o=r hydreigon
 chmod 337 honchkrow
 chmod u=rwx,g=rx,o=wx bronzong
 chmod u=r,g=,o= mightyena
