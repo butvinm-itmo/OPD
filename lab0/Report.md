@@ -229,6 +229,9 @@
     -rw-r--r--  1 s367945  studs   88 10 сент. 17:16 archeops3_69
     lrwxr-xr-x  1 s367945  studs    8 10 сент. 17:23 Copy_53 -> sunkern4
     ...
+    [s367945@helios ~/OPD/lab0/lab0]$ cd Copy_53
+    [s367945@helios ~/OPD/lab0/lab0/Copy_53]$ ls
+    bronzong        cottonee        honchkrow       hydreigon       mightyena       prinplup
 
 ### 5
 Команды:
@@ -288,7 +291,7 @@
 ### 2
 Команда:
 
-    ls -R1tl | grep "^[d|-]"
+    ls -R1trl | grep "^[d|-]"
 Результат:
 
     -rw-r--r--  1 s367945  studs   95 10 сент. 18:03 archeops3
@@ -331,32 +334,23 @@
 ### 4
 Команда:
 > Уберите флаг h для проверки названия файлов
-    mkdir tmp
+
     grep --include=\*o -rh ".*" . | sort 2> /tmp/s3467945_errors
 Результат:
 
     Tempo
     Развитые способности Own
     Тип диеты Herbivore
-    [s367945@helios ~/OPD/lab0]$ cd tmp
-    [s367945@helios ~/OPD/lab0/tmp]$ cat errors
-    [s367945@helios ~/OPD/lab0/tmp]$ ls
-    errors
 
 ### 5
 Команда:
 
-    grep --include=\p* -rl  ".*" . |xargs  ls -lc 2> /tmp/s3467945_errors
+    ls -R1crl | grep "^[d|-]" | grep -E " p.+$" 2>> /tmp/s3467945_errors
 Результат:
 
-    -rw-r--r--  1 s367945  studs   69 10 сент. 17:59 ./Copy_53/hydreigon/piloswine7
-    -rw-r--r--  1 s367945  studs   69 10 сент. 17:59 ./sunkern4/hydreigon/piloswine7
-    -rw-r--r--  1 s367945  studs  106 10 сент. 17:59 ./poochyena9/seel/sunkern4/prinplup
-    -rw-r--r--  1 s367945  studs  106 10 сент. 17:56 ./Copy_53/prinplup
-    -rw-r--r--  1 s367945  studs  106 10 сент. 17:56 ./sunkern4/prinplup
-    -rw-r--r--  1 s367945  studs   69 10 сент. 17:56 ./piloswine7
-    -rw-r--r--  2 s367945  studs  121 10 сент. 17:56 ./Copy_53/prinplupgurdurr
-    -rw-r--r--  2 s367945  studs  121 10 сент. 17:56 ./sunkern4/prinplupgurdurr
+    -rwxrwxrwx  1 s367945  studs   69 18 сент. 01:09 piloswine7
+    drwxrwxrwx  4 s367945  studs    6 18 сент. 01:09 poochyena9
+    -rwxrwxrwx  1 s367945  studs  106 18 сент. 01:09 prinplup
 
 ### 6   
 Команда:
@@ -382,7 +376,7 @@
 Результат:
 
     [s367945@helios ~/OPD/lab0]$ ls
-    archeops3_69    Copy_53         gurdurr6        piloswine7      poochyena9      sunkern4        tangela5        tmp
+    archeops3_69    Copy_53         gurdurr6        piloswine7      poochyena9      sunkern4        tangela5        
 
 ### 2
 Команда:
@@ -400,7 +394,7 @@
 Результат:
 
     [s367945@helios ~/OPD/lab0]$ ls
-    archeops3_69    gurdurr6        piloswine7      poochyena9      sunkern4        tangela5        tmp
+    archeops3_69    gurdurr6        piloswine7      poochyena9      sunkern4        tangela5        
 
 ### 4
 Команда:
@@ -417,7 +411,7 @@
 Результат:
 
     [s367945@helios ~/OPD/lab0]$ ls
-    archeops3_69    gurdurr6        piloswine7      poochyena9      tangela5        tmp
+    archeops3_69    gurdurr6        piloswine7      poochyena9      tangela5        
 
 ### 6
 Команда:
