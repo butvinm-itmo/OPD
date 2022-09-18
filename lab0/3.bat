@@ -4,7 +4,7 @@ cd lab0
 cp -r sunkern4 poochyena9/seel
 
 :: 2
-cat piloswine7 > poochyena9/ludicolopiloswine
+cp piloswine7 ./poochyena9/ludicolopiloswine
 
 :: 3
 cat tangela5/treecko tangela5/rampardos > archeops3_69
