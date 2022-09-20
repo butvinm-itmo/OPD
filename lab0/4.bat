@@ -5,7 +5,7 @@ wc -l archeops3 | head -c 8 | tail -c 1 1>> archeops3
 echo \ 1>> archeops3
 
 :: 2
-ls -Rtr1l poochyena9
+ls -Rtr1l poochyena9 | grep "^[d|-|l]"
 
 :: 3
 grep -ni te archeops3 2> /dev/null

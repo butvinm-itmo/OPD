@@ -334,7 +334,7 @@
 ### 2
 Команда:
 
-    ls -R1trl | grep "^[d|-]"
+    ls -R1trl | grep "^[d|-|l]"
 Результат:
 
     -rw-r--r--  1 s367945  studs   95 10 сент. 18:03 archeops3
@@ -388,7 +388,7 @@
 ### 5
 Команда:
 
-    ls -R1crl | grep "^[d|-]" | grep -E " p.+$" 2>> /tmp/s3467945_errors
+    ls -R1crl | grep "^[d|-|l]" | grep -E " p.+$" 2>> /tmp/s3467945_errors
 Результат:
 
     -rwxrwxrwx  1 s367945  studs   69 18 сент. 01:09 piloswine7
