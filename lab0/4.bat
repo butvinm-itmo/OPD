@@ -14,7 +14,7 @@ grep -ni te archeops3 2> /dev/null
 grep --include=\*o -rh ".*" . | sort 2>> /tmp/s3467945_errors
 
 :: 5
-ls -R1crl | grep "^[d|-]" | grep -E " p.+$" 2>> /tmp/s3467945_errors
+ls -R1crl | grep "^[d|-|l]" | grep -E " p.+$" 2>> /tmp/s3467945_errors
 
 :: 6
 grep -rhi ".*[^h]$" ./poochyena9/ 2> /dev/null
