@@ -254,7 +254,7 @@
 ### 4
 Команда:
 
-    ln -s sunkern4 Copy_53
+    ln -s $PWD/sunkern4 $PWD/Copy_53
 Результат:
 
     [s367945@helios ~/OPD/lab0]$ ls -l
@@ -271,7 +271,7 @@
 Команды:
 
     rm poochyena9/ludicolopiloswine
-    ln -s piloswine7 poochyena9/ludicolopiloswine
+    ln -s $PWD/piloswine7 $PWD/poochyena9/ludicolopiloswine
 Результат:
 
     [s367945@helios ~/OPD/lab0/poochyena9]$ ls -l
@@ -283,7 +283,7 @@
 ### 6
 Команда:
 
-    ln gurdurr6 sunkern4/prinplupgurdurr
+    ln $PWD/gurdurr6 $PWD/sunkern4/prinplupgurdurr
 Результат:
 
     [s367945@helios ~/OPD/lab0]$ ls -l
