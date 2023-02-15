@@ -1,0 +1,33 @@
+
+	ORG 	0x000
+
+result: 	WORD	-100
+
+input:	HLT
+	input_val:	WORD	?
+		another_input:	WORD	?
+			yet_another_input:	WORD	?
+	RET
+	
+	
+
+foo:	ADD	another_input
+	LD	another_input
+	
+
+
+START:	CLA
+	JUMP	proccess_input
+	ADD	yet_another_input
+	JUMP	proccess_input
+	ADC	foo
+	
+
+proccess_input:	CALL 	input
+	LD 	input_val
+	ADD	input_val
+	ROR	
+	AND	foo
+
+
+

@@ -1,0 +1,27 @@
+; From number A get number A*100 + 90 + (9 - A)
+
+; Data
+; Address   Value   Comment
+; 0x000     0x0000   Result
+; 0x001             Number A
+
+
+; Program
+; Location  0x002 - lastCell
+; Begin     0x002
+
+; ORG 0x002
+; ; ADD (9 - A)
+; CLA
+; SUB 0x001
+; ADD #0x0009
+
+; ; ADD 90
+; ADD #0x005A
+
+; ; ADD A*100
+; ADD #0x0064 ; loop begin
+; LOOP 0x001
+; JUMP 0x006 ; loop end
+; ST 0x000
+; HLT

@@ -1,0 +1,25 @@
+; Sum A and B
+; 
+; Data
+; Address   Value   Comment
+; 0x000     0x0000  Result
+; 0x001             value A 
+; 0x002             value B
+
+; Program
+; Location  0x003 - 0x006
+; Begin     0x003
+
+	ORG 	0x003 
+START:	LD	0x001
+	ADD	0x002
+	ST 	0x000
+	HLT 
+	AND	body
+	JUMP	START
+	JUMP	START
+	JUMP	foo
+
+
+foo:	JUMP	START
+	JUMP	START

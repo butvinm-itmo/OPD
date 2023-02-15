@@ -1,0 +1,27 @@
+; 0x000 target number of fibonacci
+; 0x001 = 0 previous calculated value
+; 0x002 = 1 current calculated value and final result
+; 0x003 temporary values
+
+; ORG 4
+; ; offset number (first two numbers already calculated)
+; LD 0x000
+; DEC
+; DEC
+; ST 0x000
+
+; ; Calculate next number
+; LD 0x001
+; ADD 0x002 
+; ST 0x003 ; store to temp for swap
+
+; ; Swap current and previous
+; LD 0x002
+; ST 0x001
+; LD 0x003
+; ST 0x002
+
+; ; Loop while not last lumber calculated
+; LOOP 0x000
+; JUMP 0x004
+; HLT
