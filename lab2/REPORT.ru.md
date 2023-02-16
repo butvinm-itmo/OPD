@@ -66,30 +66,30 @@
 [Basic computer assembly support for vs code](https://github.com/mamsdeveloper/bcomp-asm)
 ```bcomp
 
-	                        ORG	                     0x253
-array_st_pointer:	        WORD	                 $array
-array_curr_pointer:	        WORD	                 ?
-loop_counter:	            WORD	                 ?
-result:	                    WORD	                 ?
+                            ORG                      0x253
+array_st_pointer:           WORD                     $array
+array_curr_pointer:         WORD                     ?
+loop_counter:               WORD                     ?
+result:                     WORD                     ?
                                          
-START:	                    CLA           
-	                        ST                       result
-	                        LD                       #4
+START:                      CLA           
+                            ST                       result
+                            LD                       #4
                             ST                       loop_counter
-	                        LD                       array_st_pointer
-	                        ST                       array_curr_pointer
-loop_body:	                LD	                     (array_curr_pointer)+
+                            LD                       array_st_pointer
+                            ST                       array_curr_pointer
+loop_body:                  LD                       (array_curr_pointer)+
                                                
-	                        BCC	                     loop_end
-	                        ROL                  
-	                        LD	                     result
-	                        INC                  
-	                        ST	                     result
-loop_end:	                LOOP	                 loop_counter
-	                        JUMP	                 loop_body
-	                        HLT
+                            BCC                      loop_end
+                            ROL                  
+                            LD                       result
+                            INC                  
+                            ST                       result
+loop_end:                   LOOP                     loop_counter
+                            JUMP                     loop_body
+                            HLT
                                     
-	                        ORG	0x268
-array:	                    WORD	                0x0280, 0x0200, 0x225F, 0xC257
+                            ORG 0x268
+array:                      WORD                    0x0280, 0x0200, 0x225F, 0xC257
 
 ```
