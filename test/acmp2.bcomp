@@ -10,9 +10,14 @@
 ; Begin     0x002
 
 	ORG 0x002 
+
+result:	WORD	10
+
 START:	LD 0x001
 	ADD 0x000
 	ST 0x000
 	LOOP 0x001
 	JUMP 0x002
 	HLT
+	ST result
+	
