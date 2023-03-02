@@ -12,12 +12,13 @@ START:	CLA
 	ST	array_curr_pointer
 loop_body:	LD	(array_curr_pointer)+
 	ROR
-	BCC	loop_end
-	ROL
+	BCS	continue
+	JUMP	loop_end
+continue:	ROL
 	LD	result
 	INC
 	ST	result
-loop_end:	LOOP	loop_counter
+loop_end:	LOOP	0x255
 	JUMP	loop_body
 	HLT
 
