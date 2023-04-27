@@ -1,0 +1,56 @@
+ORG 0x000
+A:	WORD	?              
+B:	WORD	?              
+C:	WORD	?              
+E:	WORD	0 
+START:	
+	CLA            
+	ST E           
+	LD A           
+	INC            
+	PUSH           
+	CALL FOO       
+	POP            
+	DEC            
+	SUB E          
+	ST E           
+	LD B           
+	DEC            
+	PUSH           
+	CALL FOO       
+	POP            
+	SUB E          
+	ST E           
+	LD C           
+	PUSH           
+	CALL FOO       
+	POP            
+	ADD E          
+	ST E           
+	HLT                         
+
+ORG 0x080
+FOO:          
+	LD &1    
+	BZS MUL_AND_SUB
+	BNC RETURN_X  
+
+	MUL_AND_SUB:   
+		CMP X          
+		BLT RETURN_X   
+		BZS RETURN_X   
+		ASL            
+		ASL            
+		ADD &1   
+		SUB Y          
+		JUMP RETURN    
+
+	RETURN_X:      
+		LD X  
+
+	RETURN:         
+		ST &1    
+		RET         
+		   
+	X:	WORD -2920              
+	Y:  WORD 232
