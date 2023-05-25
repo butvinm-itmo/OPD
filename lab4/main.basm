@@ -1,0 +1,42 @@
+ORG 0x5E7
+RESULT: WORD 0x3331, 0xe020, 0xf0ef, 0xebe5, 0x0aff
+
+ORG 0x485
+START:
+MAIN_LOOP:
+    ; c1
+    CALL AWAIT_DEV3
+    
+    LD (RESULT_POINTER)
+    CALL CHECK_NL
+    OUT 0xC
+
+    ; c2
+    CALL AWAIT_DEV3
+    
+    LD (RESULT_POINTER)+
+    SWAB
+    CALL CHECK_NL
+    OUT 0xC
+
+    BR MAIN_LOOP
+
+EXIT:
+    HLT
+
+RESULT_POINTER: WORD $RESULT
+
+AWAIT_DEV3:
+    L1:
+        IN 0xD
+        AND #0x40
+        BEQ L1
+    RET
+
+CHECK_NL:
+    PUSH
+    SXTB
+    CMP #0x0A
+    BEQ EXIT
+    POP
+    RET
