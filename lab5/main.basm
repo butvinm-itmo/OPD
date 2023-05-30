@@ -1,0 +1,94 @@
+org 0x000
+int_dev_2_vec: word $int_dev_2, 0x180
+int_dev_3_vec: word $int_dev_3, 0x180
+
+org 0x033
+x: word 0xFFD8
+
+; devices registers
+; dev_2 DR = 4
+; dev_2 MR, SR = 5
+; dev_3 DR = 6
+; dev_3 MR, SR = 7
+
+org 0x100
+f: ; (x: int) -> int
+    ld &1 ; load x
+    add &1 ; x * 3
+    add &1
+    sub #7
+    st &1 ; store x
+    ret
+
+org 0x150
+x_min: word 0xFFD8 ; -40
+x_max: word 0x002C ; 44
+
+constrain_x: ; (x: int) -> int
+    ; -40 <= x <= 44 -> 0xFFD8 <= x <= 0x002C
+    ld &1
+    cmp x_min ; if x < 0xFFD8 then return
+    blt constrain_x_set_min
+    cmp x_max ; if x <= 0x002C then return
+    blt constrain_x_ret
+    beq constrain_x_ret
+    ; else x = 0xFFD8
+    constrain_x_set_min:
+    nop ; debug
+    ld x_min
+    st &1 ; store x
+    constrain_x_ret:
+    ret
+
+org 0x200
+int_dev_3:
+    ; show result of F(x) on dev_3
+    ld $x
+    nop ; debug
+    push
+    call $f
+    pop
+    out 6 ; dev_3 DR
+    nop ; debug
+    iret
+
+org 0x300
+int_dev_2:
+    ; x = (dev_2 DR) * 3 - x
+    ld $x
+    nop ; debug
+    in 4 ; dev_2 DR
+    sxtb
+    push
+    add &0 ; dev_dr * 3
+    add &0
+    sub $x ; x = dev_dr * 3 - x
+    nop ; debug
+    push
+    call $constrain_x
+    pop
+    st $x
+    nop ; debug
+    pop ; remove dev_dr
+    iret
+
+org 0x400
+main:
+    ; inc x by 3
+    l1:
+        ld $x
+        add #0x3
+        push
+        call $constrain_x
+        pop
+        st $x
+    jump l1
+
+start:
+    di
+    ld #0x8 ; (1000 | 0000) - enable interrupt and set vector int_dev_3_vec
+    out 5 ; dev_2 MR
+    ld #0x9 ; (1000 | 0001) - enable interrupt and set vector int_dev_3_vec
+    out 7 ; dev_3 MR
+    ei
+    jump main
