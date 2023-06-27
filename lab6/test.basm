@@ -1,0 +1,1407 @@
+org 0x010
+r0: word 0x1ff0
+r1: word 0x0d5c
+r2: word 0x0a8f
+r3: word 0xfc40
+r4: word 0x0600
+r5: word 0x25e4
+r6: word 0xed43
+r7: word 0x0348
+r8: word 0x0e81
+r9: word 0x0a0e
+r10: word 0x1b2b
+r11: word 0xea8a
+r12: word 0x1ba4
+r13: word 0x0391
+r14: word 0x2a54
+r15: word 0xe032
+r16: word 0xfd10
+r17: word 0xeeb8
+r18: word 0xcfa8
+r19: word 0xfb9b
+r20: word 0xf8f4
+r21: word 0xfbe0
+r22: word 0x00f6
+r23: word 0x05e9
+r24: word 0xf232
+r25: word 0x012b
+r26: word 0xf560
+r27: word 0xfdf0
+r28: word 0xf46c
+r29: word 0x285c
+r30: word 0x0348
+r31: word 0xf8eb
+r32: word 0x04e6
+r33: word 0xee20
+r34: word 0x1482
+r35: word 0x050a
+r36: word 0xefe0
+r37: word 0x1770
+r38: word 0xeb4c
+r39: word 0xdf94
+r40: word 0x0000
+r41: word 0x1458
+r42: word 0xe8a4
+r43: word 0x0231
+r44: word 0x09c4
+r45: word 0x2eac
+r46: word 0xf6d0
+r47: word 0xf990
+r48: word 0x01fe
+r49: word 0xd00c
+r50: word 0xe5fc
+r51: word 0xf75c
+r52: word 0x02a3
+r53: word 0xe270
+r54: word 0x050a
+r55: word 0x151e
+r56: word 0x1fc8
+r57: word 0xeb07
+r58: word 0x0dcb
+r59: word 0xe7e1
+r60: word 0x00f0
+r61: word 0xfbc8
+r62: word 0x083c
+r63: word 0xfe40
+r64: word 0xceea
+r65: word 0xefd8
+r66: word 0xf620
+r67: word 0xd334
+r68: word 0xfad8
+r69: word 0x156f
+r70: word 0xf7c0
+r71: word 0xf71b
+r72: word 0x1793
+r73: word 0xf420
+r74: word 0x0870
+r75: word 0xd3b2
+r76: word 0xded9
+r77: word 0x08ee
+r78: word 0xd729
+r79: word 0xdcd2
+r80: word 0x09f6
+r81: word 0x3a20
+r82: word 0x0006
+r83: word 0x2c30
+r84: word 0x13f0
+r85: word 0xeef0
+r86: word 0xd71f
+r87: word 0x0cb2
+r88: word 0xf687
+r89: word 0x0473
+r90: word 0xe0d4
+r91: word 0xfb14
+r92: word 0x191a
+r93: word 0xf3f8
+r94: word 0xf820
+r95: word 0xf934
+r96: word 0xc75c
+r97: word 0x02e0
+r98: word 0x03a8
+r99: word 0x0cb0
+
+start:
+ld #0x49 ; 73 * 112 = 8176
+word 0x9f70
+test_flags0:
+test_n0: bns fail0 ; n = False
+test_z0: bns fail0 ; z = False
+test_result0:
+cmp $r0
+bne fail0
+jump pass0
+fail0:
+ld #0x1
+hlt
+pass0:
+ld #0xda ; -38 * -90 = 3420
+word 0x9fa6
+test_flags1:
+test_n1: bns fail1 ; n = False
+test_z1: bns fail1 ; z = False
+test_result1:
+cmp $r1
+bne fail1
+jump pass1
+fail1:
+ld #0x1
+hlt
+pass1:
+ld #0x33 ; 51 * 53 = 2703
+word 0x9f35
+test_flags2:
+test_n2: bns fail2 ; n = False
+test_z2: bns fail2 ; z = False
+test_result2:
+cmp $r2
+bne fail2
+jump pass2
+fail2:
+ld #0x1
+hlt
+pass2:
+ld #0x88 ; -120 * 8 = -960
+word 0x9f08
+test_flags3:
+test_n3: bnc fail3 ; n = True
+test_z3: bnc fail3 ; z = False
+test_result3:
+cmp $r3
+bne fail3
+jump pass3
+fail3:
+ld #0x1
+hlt
+pass3:
+ld #0xa0 ; -96 * -16 = 1536
+word 0x9ff0
+test_flags4:
+test_n4: bns fail4 ; n = False
+test_z4: bns fail4 ; z = False
+test_result4:
+cmp $r4
+bne fail4
+jump pass4
+fail4:
+ld #0x1
+hlt
+pass4:
+ld #0x9f ; -97 * -100 = 9700
+word 0x9f9c
+test_flags5:
+test_n5: bns fail5 ; n = False
+test_z5: bns fail5 ; z = False
+test_result5:
+cmp $r5
+bne fail5
+jump pass5
+fail5:
+ld #0x1
+hlt
+pass5:
+ld #0x8b ; -117 * 41 = -4797
+word 0x9f29
+test_flags6:
+test_n6: bnc fail6 ; n = True
+test_z6: bnc fail6 ; z = False
+test_result6:
+cmp $r6
+bne fail6
+jump pass6
+fail6:
+ld #0x1
+hlt
+pass6:
+ld #0x07 ; 7 * 120 = 840
+word 0x9f78
+test_flags7:
+test_n7: bns fail7 ; n = False
+test_z7: bns fail7 ; z = False
+test_result7:
+cmp $r7
+bne fail7
+jump pass7
+fail7:
+ld #0x1
+hlt
+pass7:
+ld #0x2f ; 47 * 79 = 3713
+word 0x9f4f
+test_flags8:
+test_n8: bns fail8 ; n = False
+test_z8: bns fail8 ; z = False
+test_result8:
+cmp $r8
+bne fail8
+jump pass8
+fail8:
+ld #0x1
+hlt
+pass8:
+ld #0x9d ; -99 * -26 = 2574
+word 0x9fe6
+test_flags9:
+test_n9: bns fail9 ; n = False
+test_z9: bns fail9 ; z = False
+test_result9:
+cmp $r9
+bne fail9
+jump pass9
+fail9:
+ld #0x1
+hlt
+pass9:
+ld #0x95 ; -107 * -65 = 6955
+word 0x9fbf
+test_flags10:
+test_n10: bns fail10 ; n = False
+test_z10: bns fail10 ; z = False
+test_result10:
+cmp $r10
+bne fail10
+jump pass10
+fail10:
+ld #0x1
+hlt
+pass10:
+ld #0x52 ; 82 * -67 = -5494
+word 0x9fbd
+test_flags11:
+test_n11: bnc fail11 ; n = True
+test_z11: bnc fail11 ; z = False
+test_result11:
+cmp $r11
+bne fail11
+jump pass11
+fail11:
+ld #0x1
+hlt
+pass11:
+ld #0x86 ; -122 * -58 = 7076
+word 0x9fc6
+test_flags12:
+test_n12: bns fail12 ; n = False
+test_z12: bns fail12 ; z = False
+test_result12:
+cmp $r12
+bne fail12
+jump pass12
+fail12:
+ld #0x1
+hlt
+pass12:
+ld #0x53 ; 83 * 11 = 913
+word 0x9f0b
+test_flags13:
+test_n13: bns fail13 ; n = False
+test_z13: bns fail13 ; z = False
+test_result13:
+cmp $r13
+bne fail13
+jump pass13
+fail13:
+ld #0x1
+hlt
+pass13:
+ld #0x7e ; 126 * 86 = 10836
+word 0x9f56
+test_flags14:
+test_n14: bns fail14 ; n = False
+test_z14: bns fail14 ; z = False
+test_result14:
+cmp $r14
+bne fail14
+jump pass14
+fail14:
+ld #0x1
+hlt
+pass14:
+ld #0x76 ; 118 * -69 = -8142
+word 0x9fbb
+test_flags15:
+test_n15: bnc fail15 ; n = True
+test_z15: bnc fail15 ; z = False
+test_result15:
+cmp $r15
+bne fail15
+jump pass15
+fail15:
+ld #0x1
+hlt
+pass15:
+ld #0xf0 ; -16 * 47 = -752
+word 0x9f2f
+test_flags16:
+test_n16: bnc fail16 ; n = True
+test_z16: bnc fail16 ; z = False
+test_result16:
+cmp $r16
+bne fail16
+jump pass16
+fail16:
+ld #0x1
+hlt
+pass16:
+ld #0xc8 ; -56 * 79 = -4424
+word 0x9f4f
+test_flags17:
+test_n17: bnc fail17 ; n = True
+test_z17: bnc fail17 ; z = False
+test_result17:
+cmp $r17
+bne fail17
+jump pass17
+fail17:
+ld #0x1
+hlt
+pass17:
+ld #0x89 ; -119 * 104 = -12376
+word 0x9f68
+test_flags18:
+test_n18: bnc fail18 ; n = True
+test_z18: bnc fail18 ; z = False
+test_result18:
+cmp $r18
+bne fail18
+jump pass18
+fail18:
+ld #0x1
+hlt
+pass18:
+ld #0xf1 ; -15 * 75 = -1125
+word 0x9f4b
+test_flags19:
+test_n19: bnc fail19 ; n = True
+test_z19: bnc fail19 ; z = False
+test_result19:
+cmp $r19
+bne fail19
+jump pass19
+fail19:
+ld #0x1
+hlt
+pass19:
+ld #0x2c ; 44 * -41 = -1804
+word 0x9fd7
+test_flags20:
+test_n20: bnc fail20 ; n = True
+test_z20: bnc fail20 ; z = False
+test_result20:
+cmp $r20
+bne fail20
+jump pass20
+fail20:
+ld #0x1
+hlt
+pass20:
+ld #0xdf ; -33 * 32 = -1056
+word 0x9f20
+test_flags21:
+test_n21: bnc fail21 ; n = True
+test_z21: bnc fail21 ; z = False
+test_result21:
+cmp $r21
+bne fail21
+jump pass21
+fail21:
+ld #0x1
+hlt
+pass21:
+ld #0xfa ; -6 * -41 = 246
+word 0x9fd7
+test_flags22:
+test_n22: bns fail22 ; n = False
+test_z22: bns fail22 ; z = False
+test_result22:
+cmp $r22
+bne fail22
+jump pass22
+fail22:
+ld #0x1
+hlt
+pass22:
+ld #0x59 ; 89 * 17 = 1513
+word 0x9f11
+test_flags23:
+test_n23: bns fail23 ; n = False
+test_z23: bns fail23 ; z = False
+test_result23:
+cmp $r23
+bne fail23
+jump pass23
+fail23:
+ld #0x1
+hlt
+pass23:
+ld #0xc7 ; -57 * 62 = -3534
+word 0x9f3e
+test_flags24:
+test_n24: bnc fail24 ; n = True
+test_z24: bnc fail24 ; z = False
+test_result24:
+cmp $r24
+bne fail24
+jump pass24
+fail24:
+ld #0x1
+hlt
+pass24:
+ld #0xf3 ; -13 * -23 = 299
+word 0x9fe9
+test_flags25:
+test_n25: bns fail25 ; n = False
+test_z25: bns fail25 ; z = False
+test_result25:
+cmp $r25
+bne fail25
+jump pass25
+fail25:
+ld #0x1
+hlt
+pass25:
+ld #0x44 ; 68 * -40 = -2720
+word 0x9fd8
+test_flags26:
+test_n26: bnc fail26 ; n = True
+test_z26: bnc fail26 ; z = False
+test_result26:
+cmp $r26
+bne fail26
+jump pass26
+fail26:
+ld #0x1
+hlt
+pass26:
+ld #0xd4 ; -44 * 12 = -528
+word 0x9f0c
+test_flags27:
+test_n27: bnc fail27 ; n = True
+test_z27: bnc fail27 ; z = False
+test_result27:
+cmp $r27
+bne fail27
+jump pass27
+fail27:
+ld #0x1
+hlt
+pass27:
+ld #0xb4 ; -76 * 39 = -2964
+word 0x9f27
+test_flags28:
+test_n28: bnc fail28 ; n = True
+test_z28: bnc fail28 ; z = False
+test_result28:
+cmp $r28
+bne fail28
+jump pass28
+fail28:
+ld #0x1
+hlt
+pass28:
+ld #0x54 ; 84 * 123 = 10332
+word 0x9f7b
+test_flags29:
+test_n29: bns fail29 ; n = False
+test_z29: bns fail29 ; z = False
+test_result29:
+cmp $r29
+bne fail29
+jump pass29
+fail29:
+ld #0x1
+hlt
+pass29:
+ld #0x07 ; 7 * 120 = 840
+word 0x9f78
+test_flags30:
+test_n30: bns fail30 ; n = False
+test_z30: bns fail30 ; z = False
+test_result30:
+cmp $r30
+bne fail30
+jump pass30
+fail30:
+ld #0x1
+hlt
+pass30:
+ld #0xdb ; -37 * 49 = -1813
+word 0x9f31
+test_flags31:
+test_n31: bnc fail31 ; n = True
+test_z31: bnc fail31 ; z = False
+test_result31:
+cmp $r31
+bne fail31
+jump pass31
+fail31:
+ld #0x1
+hlt
+pass31:
+ld #0xbe ; -66 * -19 = 1254
+word 0x9fed
+test_flags32:
+test_n32: bns fail32 ; n = False
+test_z32: bns fail32 ; z = False
+test_result32:
+cmp $r32
+bne fail32
+jump pass32
+fail32:
+ld #0x1
+hlt
+pass32:
+ld #0x2c ; 44 * -104 = -4576
+word 0x9f98
+test_flags33:
+test_n33: bnc fail33 ; n = True
+test_z33: bnc fail33 ; z = False
+test_result33:
+cmp $r33
+bne fail33
+jump pass33
+fail33:
+ld #0x1
+hlt
+pass33:
+ld #0x83 ; -125 * -42 = 5250
+word 0x9fd6
+test_flags34:
+test_n34: bns fail34 ; n = False
+test_z34: bns fail34 ; z = False
+test_result34:
+cmp $r34
+bne fail34
+jump pass34
+fail34:
+ld #0x1
+hlt
+pass34:
+ld #0xe2 ; -30 * -43 = 1290
+word 0x9fd5
+test_flags35:
+test_n35: bns fail35 ; n = False
+test_z35: bns fail35 ; z = False
+test_result35:
+cmp $r35
+bne fail35
+jump pass35
+fail35:
+ld #0x1
+hlt
+pass35:
+ld #0xa0 ; -96 * 43 = -4128
+word 0x9f2b
+test_flags36:
+test_n36: bnc fail36 ; n = True
+test_z36: bnc fail36 ; z = False
+test_result36:
+cmp $r36
+bne fail36
+jump pass36
+fail36:
+ld #0x1
+hlt
+pass36:
+ld #0x50 ; 80 * 75 = 6000
+word 0x9f4b
+test_flags37:
+test_n37: bns fail37 ; n = False
+test_z37: bns fail37 ; z = False
+test_result37:
+cmp $r37
+bne fail37
+jump pass37
+fail37:
+ld #0x1
+hlt
+pass37:
+ld #0x6a ; 106 * -50 = -5300
+word 0x9fce
+test_flags38:
+test_n38: bnc fail38 ; n = True
+test_z38: bnc fail38 ; z = False
+test_result38:
+cmp $r38
+bne fail38
+jump pass38
+fail38:
+ld #0x1
+hlt
+pass38:
+ld #0x53 ; 83 * -100 = -8300
+word 0x9f9c
+test_flags39:
+test_n39: bnc fail39 ; n = True
+test_z39: bnc fail39 ; z = False
+test_result39:
+cmp $r39
+bne fail39
+jump pass39
+fail39:
+ld #0x1
+hlt
+pass39:
+ld #0x00 ; 0 * -35 = 0
+word 0x9fdd
+test_flags40:
+test_n40: bns fail40 ; n = False
+test_z40: bns fail40 ; z = True
+test_result40:
+cmp $r40
+bne fail40
+jump pass40
+fail40:
+ld #0x1
+hlt
+pass40:
+ld #0x2a ; 42 * 124 = 5208
+word 0x9f7c
+test_flags41:
+test_n41: bns fail41 ; n = False
+test_z41: bns fail41 ; z = False
+test_result41:
+cmp $r41
+bne fail41
+jump pass41
+fail41:
+ld #0x1
+hlt
+pass41:
+ld #0x8d ; -115 * 52 = -5980
+word 0x9f34
+test_flags42:
+test_n42: bnc fail42 ; n = True
+test_z42: bnc fail42 ; z = False
+test_result42:
+cmp $r42
+bne fail42
+jump pass42
+fail42:
+ld #0x1
+hlt
+pass42:
+ld #0x0b ; 11 * 51 = 561
+word 0x9f33
+test_flags43:
+test_n43: bns fail43 ; n = False
+test_z43: bns fail43 ; z = False
+test_result43:
+cmp $r43
+bne fail43
+jump pass43
+fail43:
+ld #0x1
+hlt
+pass43:
+ld #0x7d ; 125 * 20 = 2500
+word 0x9f14
+test_flags44:
+test_n44: bns fail44 ; n = False
+test_z44: bns fail44 ; z = False
+test_result44:
+cmp $r44
+bne fail44
+jump pass44
+fail44:
+ld #0x1
+hlt
+pass44:
+ld #0x74 ; 116 * 103 = 11948
+word 0x9f67
+test_flags45:
+test_n45: bns fail45 ; n = False
+test_z45: bns fail45 ; z = False
+test_result45:
+cmp $r45
+bne fail45
+jump pass45
+fail45:
+ld #0x1
+hlt
+pass45:
+ld #0xcf ; -49 * 48 = -2352
+word 0x9f30
+test_flags46:
+test_n46: bnc fail46 ; n = True
+test_z46: bnc fail46 ; z = False
+test_result46:
+cmp $r46
+bne fail46
+jump pass46
+fail46:
+ld #0x1
+hlt
+pass46:
+ld #0xf0 ; -16 * 103 = -1648
+word 0x9f67
+test_flags47:
+test_n47: bnc fail47 ; n = True
+test_z47: bnc fail47 ; z = False
+test_result47:
+cmp $r47
+bne fail47
+jump pass47
+fail47:
+ld #0x1
+hlt
+pass47:
+ld #0x0a ; 10 * 51 = 510
+word 0x9f33
+test_flags48:
+test_n48: bns fail48 ; n = False
+test_z48: bns fail48 ; z = False
+test_result48:
+cmp $r48
+bne fail48
+jump pass48
+fail48:
+ld #0x1
+hlt
+pass48:
+ld #0x7c ; 124 * -99 = -12276
+word 0x9f9d
+test_flags49:
+test_n49: bnc fail49 ; n = True
+test_z49: bnc fail49 ; z = False
+test_result49:
+cmp $r49
+bne fail49
+jump pass49
+fail49:
+ld #0x1
+hlt
+pass49:
+ld #0x3c ; 60 * -111 = -6660
+word 0x9f91
+test_flags50:
+test_n50: bnc fail50 ; n = True
+test_z50: bnc fail50 ; z = False
+test_result50:
+cmp $r50
+bne fail50
+jump pass50
+fail50:
+ld #0x1
+hlt
+pass50:
+ld #0xe4 ; -28 * 79 = -2212
+word 0x9f4f
+test_flags51:
+test_n51: bnc fail51 ; n = True
+test_z51: bnc fail51 ; z = False
+test_result51:
+cmp $r51
+bne fail51
+jump pass51
+fail51:
+ld #0x1
+hlt
+pass51:
+ld #0x4b ; 75 * 9 = 675
+word 0x9f09
+test_flags52:
+test_n52: bns fail52 ; n = False
+test_z52: bns fail52 ; z = False
+test_result52:
+cmp $r52
+bne fail52
+jump pass52
+fail52:
+ld #0x1
+hlt
+pass52:
+ld #0x56 ; 86 * -88 = -7568
+word 0x9fa8
+test_flags53:
+test_n53: bnc fail53 ; n = True
+test_z53: bnc fail53 ; z = False
+test_result53:
+cmp $r53
+bne fail53
+jump pass53
+fail53:
+ld #0x1
+hlt
+pass53:
+ld #0xaa ; -86 * -15 = 1290
+word 0x9ff1
+test_flags54:
+test_n54: bns fail54 ; n = False
+test_z54: bns fail54 ; z = False
+test_result54:
+cmp $r54
+bne fail54
+jump pass54
+fail54:
+ld #0x1
+hlt
+pass54:
+ld #0x35 ; 53 * 102 = 5406
+word 0x9f66
+test_flags55:
+test_n55: bns fail55 ; n = False
+test_z55: bns fail55 ; z = False
+test_result55:
+cmp $r55
+bne fail55
+jump pass55
+fail55:
+ld #0x1
+hlt
+pass55:
+ld #0x71 ; 113 * 72 = 8136
+word 0x9f48
+test_flags56:
+test_n56: bns fail56 ; n = False
+test_z56: bns fail56 ; z = False
+test_result56:
+cmp $r56
+bne fail56
+jump pass56
+fail56:
+ld #0x1
+hlt
+pass56:
+ld #0xa5 ; -91 * 59 = -5369
+word 0x9f3b
+test_flags57:
+test_n57: bnc fail57 ; n = True
+test_z57: bnc fail57 ; z = False
+test_result57:
+cmp $r57
+bne fail57
+jump pass57
+fail57:
+ld #0x1
+hlt
+pass57:
+ld #0x6b ; 107 * 33 = 3531
+word 0x9f21
+test_flags58:
+test_n58: bns fail58 ; n = False
+test_z58: bns fail58 ; z = False
+test_result58:
+cmp $r58
+bne fail58
+jump pass58
+fail58:
+ld #0x1
+hlt
+pass58:
+ld #0xa1 ; -95 * 65 = -6175
+word 0x9f41
+test_flags59:
+test_n59: bnc fail59 ; n = True
+test_z59: bnc fail59 ; z = False
+test_result59:
+cmp $r59
+bne fail59
+jump pass59
+fail59:
+ld #0x1
+hlt
+pass59:
+ld #0x04 ; 4 * 60 = 240
+word 0x9f3c
+test_flags60:
+test_n60: bns fail60 ; n = False
+test_z60: bns fail60 ; z = False
+test_result60:
+cmp $r60
+bne fail60
+jump pass60
+fail60:
+ld #0x1
+hlt
+pass60:
+ld #0x0a ; 10 * -108 = -1080
+word 0x9f94
+test_flags61:
+test_n61: bnc fail61 ; n = True
+test_z61: bnc fail61 ; z = False
+test_result61:
+cmp $r61
+bne fail61
+jump pass61
+fail61:
+ld #0x1
+hlt
+pass61:
+ld #0x44 ; 68 * 31 = 2108
+word 0x9f1f
+test_flags62:
+test_n62: bns fail62 ; n = False
+test_z62: bns fail62 ; z = False
+test_result62:
+cmp $r62
+bne fail62
+jump pass62
+fail62:
+ld #0x1
+hlt
+pass62:
+ld #0x20 ; 32 * -14 = -448
+word 0x9ff2
+test_flags63:
+test_n63: bnc fail63 ; n = True
+test_z63: bnc fail63 ; z = False
+test_result63:
+cmp $r63
+bne fail63
+jump pass63
+fail63:
+ld #0x1
+hlt
+pass63:
+ld #0x67 ; 103 * -122 = -12566
+word 0x9f86
+test_flags64:
+test_n64: bnc fail64 ; n = True
+test_z64: bnc fail64 ; z = False
+test_result64:
+cmp $r64
+bne fail64
+jump pass64
+fail64:
+ld #0x1
+hlt
+pass64:
+ld #0x2f ; 47 * -88 = -4136
+word 0x9fa8
+test_flags65:
+test_n65: bnc fail65 ; n = True
+test_z65: bnc fail65 ; z = False
+test_result65:
+cmp $r65
+bne fail65
+jump pass65
+fail65:
+ld #0x1
+hlt
+pass65:
+ld #0xb1 ; -79 * 32 = -2528
+word 0x9f20
+test_flags66:
+test_n66: bnc fail66 ; n = True
+test_z66: bnc fail66 ; z = False
+test_result66:
+cmp $r66
+bne fail66
+jump pass66
+fail66:
+ld #0x1
+hlt
+pass66:
+ld #0x86 ; -122 * 94 = -11468
+word 0x9f5e
+test_flags67:
+test_n67: bnc fail67 ; n = True
+test_z67: bnc fail67 ; z = False
+test_result67:
+cmp $r67
+bne fail67
+jump pass67
+fail67:
+ld #0x1
+hlt
+pass67:
+ld #0x0c ; 12 * -110 = -1320
+word 0x9f92
+test_flags68:
+test_n68: bnc fail68 ; n = True
+test_z68: bnc fail68 ; z = False
+test_result68:
+cmp $r68
+bne fail68
+jump pass68
+fail68:
+ld #0x1
+hlt
+pass68:
+ld #0x5d ; 93 * 59 = 5487
+word 0x9f3b
+test_flags69:
+test_n69: bns fail69 ; n = False
+test_z69: bns fail69 ; z = False
+test_result69:
+cmp $r69
+bne fail69
+jump pass69
+fail69:
+ld #0x1
+hlt
+pass69:
+ld #0x40 ; 64 * -33 = -2112
+word 0x9fdf
+test_flags70:
+test_n70: bnc fail70 ; n = True
+test_z70: bnc fail70 ; z = False
+test_result70:
+cmp $r70
+bne fail70
+jump pass70
+fail70:
+ld #0x1
+hlt
+pass70:
+ld #0xdf ; -33 * 69 = -2277
+word 0x9f45
+test_flags71:
+test_n71: bnc fail71 ; n = True
+test_z71: bnc fail71 ; z = False
+test_result71:
+cmp $r71
+bne fail71
+jump pass71
+fail71:
+ld #0x1
+hlt
+pass71:
+ld #0xab ; -85 * -71 = 6035
+word 0x9fb9
+test_flags72:
+test_n72: bns fail72 ; n = False
+test_z72: bns fail72 ; z = False
+test_result72:
+cmp $r72
+bne fail72
+jump pass72
+fail72:
+ld #0x1
+hlt
+pass72:
+ld #0x50 ; 80 * -38 = -3040
+word 0x9fda
+test_flags73:
+test_n73: bnc fail73 ; n = True
+test_z73: bnc fail73 ; z = False
+test_result73:
+cmp $r73
+bne fail73
+jump pass73
+fail73:
+ld #0x1
+hlt
+pass73:
+ld #0x24 ; 36 * 60 = 2160
+word 0x9f3c
+test_flags74:
+test_n74: bns fail74 ; n = False
+test_z74: bns fail74 ; z = False
+test_result74:
+cmp $r74
+bne fail74
+jump pass74
+fail74:
+ld #0x1
+hlt
+pass74:
+ld #0x95 ; -107 * 106 = -11342
+word 0x9f6a
+test_flags75:
+test_n75: bnc fail75 ; n = True
+test_z75: bnc fail75 ; z = False
+test_result75:
+cmp $r75
+bne fail75
+jump pass75
+fail75:
+ld #0x1
+hlt
+pass75:
+ld #0x45 ; 69 * -123 = -8487
+word 0x9f85
+test_flags76:
+test_n76: bnc fail76 ; n = True
+test_z76: bnc fail76 ; z = False
+test_result76:
+cmp $r76
+bne fail76
+jump pass76
+fail76:
+ld #0x1
+hlt
+pass76:
+ld #0x12 ; 18 * 127 = 2286
+word 0x9f7f
+test_flags77:
+test_n77: bns fail77 ; n = False
+test_z77: bns fail77 ; z = False
+test_result77:
+cmp $r77
+bne fail77
+jump pass77
+fail77:
+ld #0x1
+hlt
+pass77:
+ld #0xab ; -85 * 123 = -10455
+word 0x9f7b
+test_flags78:
+test_n78: bnc fail78 ; n = True
+test_z78: bnc fail78 ; z = False
+test_result78:
+cmp $r78
+bne fail78
+jump pass78
+fail78:
+ld #0x1
+hlt
+pass78:
+ld #0x8e ; -114 * 79 = -9006
+word 0x9f4f
+test_flags79:
+test_n79: bnc fail79 ; n = True
+test_z79: bnc fail79 ; z = False
+test_result79:
+cmp $r79
+bne fail79
+jump pass79
+fail79:
+ld #0x1
+hlt
+pass79:
+ld #0xab ; -85 * -30 = 2550
+word 0x9fe2
+test_flags80:
+test_n80: bns fail80 ; n = False
+test_z80: bns fail80 ; z = False
+test_result80:
+cmp $r80
+bne fail80
+jump pass80
+fail80:
+ld #0x1
+hlt
+pass80:
+ld #0x7c ; 124 * 120 = 14880
+word 0x9f78
+test_flags81:
+test_n81: bns fail81 ; n = False
+test_z81: bns fail81 ; z = False
+test_result81:
+cmp $r81
+bne fail81
+jump pass81
+fail81:
+ld #0x1
+hlt
+pass81:
+ld #0x03 ; 3 * 2 = 6
+word 0x9f02
+test_flags82:
+test_n82: bns fail82 ; n = False
+test_z82: bns fail82 ; z = False
+test_result82:
+cmp $r82
+bne fail82
+jump pass82
+fail82:
+ld #0x1
+hlt
+pass82:
+ld #0x9b ; -101 * -112 = 11312
+word 0x9f90
+test_flags83:
+test_n83: bns fail83 ; n = False
+test_z83: bns fail83 ; z = False
+test_result83:
+cmp $r83
+bne fail83
+jump pass83
+fail83:
+ld #0x1
+hlt
+pass83:
+ld #0x3a ; 58 * 88 = 5104
+word 0x9f58
+test_flags84:
+test_n84: bns fail84 ; n = False
+test_z84: bns fail84 ; z = False
+test_result84:
+cmp $r84
+bne fail84
+jump pass84
+fail84:
+ld #0x1
+hlt
+pass84:
+ld #0x38 ; 56 * -78 = -4368
+word 0x9fb2
+test_flags85:
+test_n85: bnc fail85 ; n = True
+test_z85: bnc fail85 ; z = False
+test_result85:
+cmp $r85
+bne fail85
+jump pass85
+fail85:
+ld #0x1
+hlt
+pass85:
+ld #0x8d ; -115 * 91 = -10465
+word 0x9f5b
+test_flags86:
+test_n86: bnc fail86 ; n = True
+test_z86: bnc fail86 ; z = False
+test_result86:
+cmp $r86
+bne fail86
+jump pass86
+fail86:
+ld #0x1
+hlt
+pass86:
+ld #0xbf ; -65 * -50 = 3250
+word 0x9fce
+test_flags87:
+test_n87: bns fail87 ; n = False
+test_z87: bns fail87 ; z = False
+test_result87:
+cmp $r87
+bne fail87
+jump pass87
+fail87:
+ld #0x1
+hlt
+pass87:
+ld #0x61 ; 97 * -25 = -2425
+word 0x9fe7
+test_flags88:
+test_n88: bnc fail88 ; n = True
+test_z88: bnc fail88 ; z = False
+test_result88:
+cmp $r88
+bne fail88
+jump pass88
+fail88:
+ld #0x1
+hlt
+pass88:
+ld #0xef ; -17 * -67 = 1139
+word 0x9fbd
+test_flags89:
+test_n89: bns fail89 ; n = False
+test_z89: bns fail89 ; z = False
+test_result89:
+cmp $r89
+bne fail89
+jump pass89
+fail89:
+ld #0x1
+hlt
+pass89:
+ld #0x72 ; 114 * -70 = -7980
+word 0x9fba
+test_flags90:
+test_n90: bnc fail90 ; n = True
+test_z90: bnc fail90 ; z = False
+test_result90:
+cmp $r90
+bne fail90
+jump pass90
+fail90:
+ld #0x1
+hlt
+pass90:
+ld #0x12 ; 18 * -70 = -1260
+word 0x9fba
+test_flags91:
+test_n91: bnc fail91 ; n = True
+test_z91: bnc fail91 ; z = False
+test_result91:
+cmp $r91
+bne fail91
+jump pass91
+fail91:
+ld #0x1
+hlt
+pass91:
+ld #0x33 ; 51 * 126 = 6426
+word 0x9f7e
+test_flags92:
+test_n92: bns fail92 ; n = False
+test_z92: bns fail92 ; z = False
+test_result92:
+cmp $r92
+bne fail92
+jump pass92
+fail92:
+ld #0x1
+hlt
+pass92:
+ld #0xc8 ; -56 * 55 = -3080
+word 0x9f37
+test_flags93:
+test_n93: bnc fail93 ; n = True
+test_z93: bnc fail93 ; z = False
+test_result93:
+cmp $r93
+bne fail93
+jump pass93
+fail93:
+ld #0x1
+hlt
+pass93:
+ld #0x10 ; 16 * -126 = -2016
+word 0x9f82
+test_flags94:
+test_n94: bnc fail94 ; n = True
+test_z94: bnc fail94 ; z = False
+test_result94:
+cmp $r94
+bne fail94
+jump pass94
+fail94:
+ld #0x1
+hlt
+pass94:
+ld #0xe2 ; -30 * 58 = -1740
+word 0x9f3a
+test_flags95:
+test_n95: bnc fail95 ; n = True
+test_z95: bnc fail95 ; z = False
+test_result95:
+cmp $r95
+bne fail95
+jump pass95
+fail95:
+ld #0x1
+hlt
+pass95:
+ld #0x74 ; 116 * -125 = -14500
+word 0x9f83
+test_flags96:
+test_n96: bnc fail96 ; n = True
+test_z96: bnc fail96 ; z = False
+test_result96:
+cmp $r96
+bne fail96
+jump pass96
+fail96:
+ld #0x1
+hlt
+pass96:
+ld #0xe9 ; -23 * -32 = 736
+word 0x9fe0
+test_flags97:
+test_n97: bns fail97 ; n = False
+test_z97: bns fail97 ; z = False
+test_result97:
+cmp $r97
+bne fail97
+jump pass97
+fail97:
+ld #0x1
+hlt
+pass97:
+ld #0x8b ; -117 * -8 = 936
+word 0x9ff8
+test_flags98:
+test_n98: bns fail98 ; n = False
+test_z98: bns fail98 ; z = False
+test_result98:
+cmp $r98
+bne fail98
+jump pass98
+fail98:
+ld #0x1
+hlt
+pass98:
+ld #0x3a ; 58 * 56 = 3248
+word 0x9f38
+test_flags99:
+test_n99: bns fail99 ; n = False
+test_z99: bns fail99 ; z = False
+test_result99:
+cmp $r99
+bne fail99
+jump pass99
+fail99:
+ld #0x1
+hlt
+pass99:
+
+org 0x03f7
+ld #0x0
+hlt

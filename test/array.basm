@@ -1,0 +1,98 @@
+org 0x010 ; global variables
+adr: word 0x163 ; address of begging of the array ({adr} from your variant)
+d1: word 10 ; size of 1-axis of an array (from your variant)
+d2: word 25 ; size of 2-axis of an array (from your variant)
+si: word 1 ; start index (array numbered as [[a_(si, si), a_(si, si+1), ...],
+           ;                                 [a_(si+1, si), a_(si+1, si+1), ...],
+           ;                                 ...
+           ;                                ])
+si_mod_3: word {si mod 3} ; si mod 3
+si_mod_7: word {si mod 7} ; si mod 7
+
+r1: word 0 ; high word of a 32-bit result
+r2: word 0 ; low word of a 32-bit result
+
+org 0x020 ; code
+i: word ? ; 1-axis counter
+i_mod_3: word ? ; i mod 3
+j: word ? ; 2-axis counter
+j_mod_7: word ? ; j mod 7
+
+start: ; main function
+    ld d1 ; set 1-axis size to 1-axis counter
+    st i
+    ld si_mod_3 ; set si mod 3 to i mod 3
+    st i_mod_3
+    iter_i:
+        ld i_mod_3 ; check if i mod 3 == 0
+        bzc skip_element ; if i mod 3 != 0, skip element
+
+        ld d2 ; set 2-axis size to 2-axis counter
+        st j
+        ld si_mod_7 ; set si mod 7 to j mod 5
+        st j_mod_7
+        iter_j:
+            ld j_mod_7 ; check if j mod 7 == 0
+            bzc skip_element ; if j mod 7 != 0, skip element
+
+            ld (adr)+ ; get next element
+
+            push
+            call ext_13_bit ; extend 13-bit to 16-bit
+            pop
+
+            add r2 ; add low word to result
+            st r2
+
+
+        continue_j: ; next j iteration
+        ld j_mod_7 ; update mode
+        inc
+        
+        st j_mod_7
+        loop j
+        jump iter_j
+        jump continue_i ; if iter_j is over, run next i iteration
+
+        skip_element: ; get next element without any actions
+        ld (adr)+
+
+    continue_i: ; next i iteration
+    ld i_mod_3 ; update mode
+    inc
+    st i_mod_3
+    loop i
+    jump iter_i
+
+    hlt
+
+org 0x050 ; subroutine to extend 13-bit number to 32-bit number
+bit_13_mask: word 0x2000 ; mask to get 13-th bit (0010 0000 0000 0000)
+ext_pos_mask: word 0x3FFF ; mask to extend positive number by AND (0011 1111 1111 1111)
+r1_pos: word 0x0000 ; high word of positive 32-bit number
+ext_neg_mask: word 0xC000 ; mask to extend negative number by OR (1100 0000 0000 0000)
+r1_neg: word 0xFFFF ; high word of negative 32-bit number\
+
+ext_13_bit: ; (a: i16[:13]) -> i16
+    ; get 16-bit number with 13 relevant bits
+    ; and extend to signed 16-bit number
+
+    ld &1 ; get 13-bit number from stack
+    and bit_13_mask ; get 13-th bit
+    bzc ext_neg_mask ; if 13-th bit is 1 (number is negative) extend 1 by OR
+    ext_pos_mask: ; if 13-th bit is 0, extend to 14-bit by AND
+        and ext_pos_mask
+        st &1 ; save result to stack
+        ret
+    ext_neg_mask: ; if 13-th bit is 1, extend to 14-bit by OR
+        or ext_neg_mask
+        st &1 ; save result to stack
+        ret
+
+org 0x070 ; subroutine to sum 16-bit number with 32-bit number
+sum_16_32: ; (r1: i16, r2: i16, a: i16) -> i16, i16
+    ; sum 16-bit number with 32-bit number
+    ; and save result to 32-bit number
+    ; high word of result is on top of stack, low follows
+
+    ld &1 ; get 16-bit number from stack
