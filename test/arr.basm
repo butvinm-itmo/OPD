@@ -1,0 +1,64 @@
+org 0x010 ; global variables
+adr: word 0x163 ; address of begging of the array ({adr} from your variant)
+d1: word 10 ; size of 1-axis of an array (from your variant)
+d2: word 25 ; size of 2-axis of an array (from your variant)
+si: word 1 ; start index (array numbered as [[a_(si, si), a_(si, si+1), ...],
+           ;                                 [a_(si+1, si), a_(si+1, si+1), ...],
+           ;                                 ...
+           ;                                ])
+si_mod_3: word {si mod 3} ; si mod 3, set according to your value
+si_mod_7: word {si mod 7} ; si mod 7, set according to your value
+r1: word 0 ; high word of a 32-bit result
+r2: word 0 ; low word of a 32-bit result
+
+org 0x020 ; code
+i: word ? ; 1-axis counter
+i_mod_3: word ? ; i mod 3
+j: word ? ; 2-axis counter
+j_mod_7: word ? ; j mod 7
+
+start: ; main function
+    ; set up i counter and i mod 3
+    ld d1
+    st i
+    ld si_mod_3
+    st i_mod_3
+    ; iterate over 1-axis
+    iter_i:
+        ; check if i % 3 == 0, else skip
+        ld i_mod_3
+        bzc skip
+
+        ; set up j counter and j mod 7
+        ld d2
+        st j
+        ld si_mod_7
+        st j_mod_7
+        ; iterate over 2-axis
+        iter_j:
+            ; check if j % 7 == 0, else skip
+            ld j_mod_7
+            bzc skip
+
+            ; body
+        continue_j:
+        ; inc j mode 7
+        ld j_mod_7
+        inc
+        st j_mod_7
+        ; next iteration of 2-axis
+        loop j
+        jump iter_j
+        ; if iter_j is successfully over, run next i iteration
+        jump continue_i
+
+    skip: ld (adr)+ ; skip array element
+
+    continue_i:
+    ; inc i mod 3
+    ld i_mod_3
+    inc
+    st i_mod_3
+    ; next iteration of 1-axis
+    loop i
+    jump iter_i

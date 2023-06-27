@@ -1,0 +1,32 @@
+
+org 0x010
+a0: word 0x1111
+b0: word 0xe010
+r0: word 0x0110
+a1: word 0xf5f5
+b1: word 0x1234
+r1: word 0xFDC4
+a2: word 0xff00
+b2: word 0xff01
+r2: word 0x0000
+start:
+ld $a0
+word 0x9011
+cmp $r0
+beq ok0
+hlt
+ok0: nop
+ld $a1
+word 0x9014
+cmp $r1
+beq ok1
+hlt
+ok1: nop
+ld $a2
+word 0x9017
+cmp $r2
+beq ok2
+hlt
+ok2: nop
+ld #0
+hlt

@@ -1,0 +1,80 @@
+TIMER_ST: WORD 1
+PRINTER_ST: WORD 6
+PRINTER_DR: WORD 7
+
+
+print:
+    AWAIT PRINTER_ST
+    OUT PRINTER_DR
+
+timer_loop:
+    COUNTER: WORD 0
+
+    POP
+    ST COUNTER
+    L1:
+        LD COUNTER
+        ADD COUNTER
+        ST COUNTER
+        AWAIT TIMER_ST
+        CALL print_doubled
+    JUMP L1
+
+START:
+    PUSH 1
+    CALL timer_loop
+    PUSH 2
+    CALL timer_loop
+    PUSH 3
+    CALL timer_loop
+
+    REL 3
+
+
+; manual async version
+
+TIMER_ST: WORD 1
+PRINTER_ST: WORD 6
+
+
+print_1:
+    COUNTER: WORD 1
+
+    IN PRINTER_ST
+    AND 0x04
+    BCC ret
+
+    LD COUNTER
+    ADD COUNTER
+    ST COUNTER
+
+print_1:
+    COUNTER: WORD 1
+
+    IN PRINTER_ST
+    AND 0x04
+    BCC ret
+
+    LD COUNTER
+    ADD COUNTER
+    ST COUNTER
+
+print_1:
+    COUNTER: WORD 1
+
+    IN PRINTER_ST
+    AND 0x04
+    BCC ret
+
+    LD COUNTER
+    ADD COUNTER
+    ST COUNTER
+
+ret:
+    RET
+
+START:
+    L1:
+        IN TIMER_ST
+        AND 0x04
+        BCS print
